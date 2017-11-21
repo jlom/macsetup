@@ -219,7 +219,7 @@ echo "========================================================================"
 cp -f ./assets/com.googlecode.iterm2.plist ~/Library/Application\ Support/iTerm2/DynamicProfiles/com.googlecode.iterm2.plist
 
 # Add finicky rc
-cp -f ./assets/finicky ~/.finicky.js
+cp -f ./assets/.finicky.js ~/.finicky.js
 
 # Add diff-so-fancy config
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
