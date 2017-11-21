@@ -1,0 +1,9 @@
+##
+# Host Database
+#
+# Localhost up top, in case we're unable to fetch the hostsfile.
+##
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+127.0.0.1       lolcathost

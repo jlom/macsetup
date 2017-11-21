@@ -1,0 +1,8 @@
+# sudo: auth account password session
+# pam_tid.so = Allow TouchID
+auth       sufficient     pam_tid.so
+auth       sufficient     pam_smartcard.so
+auth       required       pam_opendirectory.so
+account    required       pam_permit.so
+password   required       pam_deny.so
+session    required       pam_permit.so
