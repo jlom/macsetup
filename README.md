@@ -18,8 +18,6 @@ Simply run `$ sh setup.sh`, and the script will guide you through the rest.
         - Uncheck all
 - Displays
     - Resolution: Scaled - More Space
-- Users & Groups
-    - Add a new admin user with a unique password for test purposes.
 
 ## Divvy
 - General
@@ -37,7 +35,6 @@ Simply run `$ sh setup.sh`, and the script will guide you through the rest.
 
 ## Safari
 - Install the [1Password-plugin](https://safari-extensions.apple.com/details/?id=com.agilebits.onepassword4-safari-2BUA8C4S2C)
-- Install [Better](https://itunes.apple.com/no/app/better-blocker/id1121192229?mt=12)
 - Add the iCloud tabs button to the toolbar
 #### Settings
 - Search engine
