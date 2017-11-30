@@ -96,8 +96,8 @@ PACKAGES=(
     wget
     zsh
 )
-for $package in ${PACKAGES[@]}; do
-    brew install ${package}
+for ((i=0; i<${#PACKAGES[@]}; ++i)); do
+    brew install ${PACKAGES[i]}
 done
 
 echo "========================================================================"
@@ -137,8 +137,8 @@ CASKS=(
     visual-studio-code
     vlc
 )
-for $cask in ${CASKS[@]}; do
-    brew cask install ${$cask} --appdir=/Applications
+for ((i=0; i<${#CASKS[@]}; ++i)); do
+    brew cask install ${CASKS[i]} --appdir=/Applications
 done
 
 echo "========================================================================"
@@ -165,7 +165,7 @@ FONTS=(
     font-fira-code
     font-source-sans-pro
 )
-for ((i=0; i<${#CASKS[@]}; ++i)); do
+for ((i=0; i<${#FONTS[@]}; ++i)); do
     brew cask install ${FONTS[i]} || true
 done
 
@@ -176,7 +176,7 @@ echo "========================================================================"
 echo "Installing NPM global packages, Sass, etc."
 echo "========================================================================"
 # Install global NPM packages
-npm i -g grunt-cli spoof
+npm i -g grunt-cli spoof tldr
 
 # Install Sass and setup
 sudo gem install sass
@@ -316,6 +316,9 @@ echo "========================================================================"
 git clone https://github.com/JohnCoates/Aerial.git ~/temp
 cp -fR ~/temp/Aerial.saver ~/Library/Screen\ Savers/Aerial.saver
 rm -rf ~/temp
+
+# Always boot in verbose mode
+sudo nvram boot-args="-v"
 
 # Require password as soon as screensaver or sleep mode starts
 defaults write com.apple.screensaver askForPassword -int 1
