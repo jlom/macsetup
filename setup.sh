@@ -34,11 +34,13 @@ echo "as part of the computer name."
 read COMPUTER_NAME
 
 echo "========================================================================"
-echo "SET YOUR GITHUB and SSH INFORMATION"
+echo "SET YOUR LOCK SCREEN, GITHUB and SSH INFORMATION"
 echo "Your name?"
 read YOUR_NAME
 echo "Your email?"
 read YOUR_EMAIL
+echo "Your phone number?"
+read YOUR_PHONE
 echo "========================================================================"
 echo "Installing xcode tools and brew"
 echo "========================================================================"
@@ -167,6 +169,27 @@ FONTS=(
 )
 for ((i=0; i<${#FONTS[@]}; ++i)); do
     brew cask install ${FONTS[i]} || true
+done
+
+echo "========================================================================"
+echo "Installing QuickLook plugins"
+echo "========================================================================"
+QLPLUGINS=(
+    qlcolorcode
+    qlstephen
+    qlmarkdown
+    quicklook-json
+    qlprettypatch
+    quicklook-csv
+    betterzipql
+    qlimagesize
+    webpquicklook
+    suspicious-package
+    quicklookase
+    qlvideo
+)
+for ((i=0; i<${#QLPLUGINS[@]}; ++i)); do
+    brew cask install ${QLPLUGINS[i]}
 done
 
 # Install Droid Sans Mono Awesome
@@ -319,6 +342,9 @@ rm -rf ~/temp
 
 # Always boot in verbose mode
 sudo nvram boot-args="-v"
+
+# Setup lock screen message
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If found call ${YOUR_PHONE} or email ${YOUR_EMAIL}"
 
 # Require password as soon as screensaver or sleep mode starts
 defaults write com.apple.screensaver askForPassword -int 1
