@@ -2,7 +2,7 @@
 This is my little script to setup a new mac from scratch.
 The best way to figure out what is going on, is probably to look at the `setup.sh` script itself. You're probably going to want to change things.
 
-Simply run `$ sh setup.sh`, and the script will guide you through the rest.
+Run `$ sh setup.sh`, and the script will guide you through the rest.
 
 # Things to do manually
 
