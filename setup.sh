@@ -271,7 +271,7 @@ curl "http://someonewhocares.org/hosts/zero/hosts" | sudo tee -a /etc/hosts
 echo "========================================================================"
 echo "Setting DNS for Wifi"
 echo "========================================================================"
-sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
+sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 8.8.8.8 8.8.4.4
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 
 echo "========================================================================"
