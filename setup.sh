@@ -113,6 +113,7 @@ CASKS=(
     atext
     backblaze
     bartender
+    blockblock
     carbon-copy-cloner
     caskroom/versions/google-chrome-canary
     cleanmymac
@@ -123,6 +124,7 @@ CASKS=(
     gpg-suite
     istat-menus
     iterm2
+    knockknock
     mailbutler
     monodraw
     noun-project
@@ -425,10 +427,16 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 ## =============================================================================
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
+
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+# Start with a blank document, instead of open dialog
+defaults write -g NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
+## PHOTOS
+## =============================================================================
 # Disable Photos.app from starting everytime a device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
