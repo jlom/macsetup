@@ -13,3 +13,26 @@ finicky.onUrl((url, opts) => {
         return { bundleIdentifier: 'org.torproject.torbrowser' }
     }
 });
+
+// Always open links from Mail in Safari
+finicky.onUrl(function(url, opts) {
+  var sourceApplication = opts && opts.sourceBundleIdentifier;
+  if (sourceApplication === "info.colloquy") {
+    return {
+      bundleIdentifier: "org.mozilla.firefox"
+    };
+  }
+});
+
+// Open Twitter links in Tweetbot
+finicky.onUrl(function(url, opts) {
+    var matches = url.match(/^https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(?:es)?\/(\d+)(?:\/.*)?$/);
+    if (matches && matches[2]) {
+	const user = matches[1];
+        const statusId = matches[2];
+        return {
+            url: `tweetbot://${user}/status/${statusId}`,
+            bundleIdentifier: 'com.tapbots.Tweetbot3Mac'
+        }
+    }
+});

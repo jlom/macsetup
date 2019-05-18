@@ -39,8 +39,6 @@ Run `$ sh setup.sh`, and the script will guide you through the rest.
 #### Settings
 - Search engine
     - DuckDuckGo
-- Advanced
-    - Show full website address
 
 ## Mail
 - Remove the trash-button from messages, and add Archive

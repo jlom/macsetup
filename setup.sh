@@ -92,6 +92,7 @@ PACKAGES=(
     openssl
     python
     python3
+    telnet
     thefuck
     tree
     watch
@@ -108,6 +109,7 @@ echo "========================================================================"
 # Install cask apps
 CASKS=(
     1password
+    aerial
     alfred
     android-platform-tools
     atext
@@ -120,6 +122,7 @@ CASKS=(
     devdocs
     divvy
     finicky
+    firefox
     gemini
     gpg-suite
     istat-menus
@@ -159,6 +162,20 @@ mas install 1121192229
 mas install 975937182
 # Deliveries
 mas install 924726344
+# OmniFocus
+mas install 1346203938
+# Drafts
+mas install 1435957248
+# Kaleidoscope
+mas install 587512244
+# Amphetamine
+mas install 937984704
+# Keynote
+mas install 409183694
+# Pages
+mas install 409201541
+# Numbers
+mas install 409203825
 
 echo "========================================================================"
 echo "Installing typefaces"
@@ -168,6 +185,8 @@ brew tap caskroom/fonts
 FONTS=(
     font-fira-code
     font-source-sans-pro
+    font-inter
+    font-roboto
 )
 for ((i=0; i<${#FONTS[@]}; ++i)); do
     brew cask install ${FONTS[i]} || true
@@ -201,7 +220,7 @@ echo "========================================================================"
 echo "Installing NPM global packages, Sass, etc."
 echo "========================================================================"
 # Install global NPM packages
-npm i -g grunt-cli spoof tldr
+npm i -g grunt-cli spoof tldr caniuse-cmd pageres-cli rename-cli
 
 # Install Sass and setup
 sudo gem install sass
@@ -337,11 +356,6 @@ sudo cp -f ./assets/sudo /etc/pam.d/sudo
 echo "========================================================================"
 echo "Configuring macOS"
 echo "========================================================================"
-# Install the Aerial sceen saver
-git clone https://github.com/JohnCoates/Aerial.git ~/temp
-cp -fR ~/temp/Aerial.saver ~/Library/Screen\ Savers/Aerial.saver
-rm -rf ~/temp
-
 # Always boot in verbose mode
 sudo nvram boot-args="-v"
 
@@ -383,8 +397,9 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ## FINDER
 ## =============================================================================
@@ -423,6 +438,13 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   OpenWith -bool true \
   Privileges -bool true
 
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 ## TEXTEDIT
 ## =============================================================================
 # Use plain text mode for new TextEdit documents
@@ -456,6 +478,32 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
+# Show the full URL in the address bar (note: this still hides the scheme)
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+# Add a context menu item for showing the Web Inspector in web views
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Warn about fraudulent websites
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+# Enable “Do Not Track”
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+# Update extensions automatically
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+# Hide Safari’s bookmarks bar by default
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# Press Tab to highlight each item on a web page
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+## iTUNES
+## =============================================================================
+# Stop iTunes from responding to the keyboard media keys
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ## MAIL
 ## =============================================================================
