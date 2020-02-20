@@ -41,6 +41,8 @@ echo "Your email?"
 read YOUR_EMAIL
 echo "Your phone number?"
 read YOUR_PHONE
+echo "Your Apple ID?"
+read YOUR_APPLEID
 echo "========================================================================"
 echo "Installing xcode tools and brew"
 echo "========================================================================"
@@ -73,7 +75,6 @@ brew install bash
 
 # Install brew packages
 PACKAGES=(
-    android-sdk
     catimg
     cowsay
     diff-so-fancy
@@ -92,12 +93,14 @@ PACKAGES=(
     openssl
     python
     python3
+    sass/sass/sass
     telnet
     thefuck
     tree
     watch
     wget
     zsh
+    yarn
 )
 for ((i=0; i<${#PACKAGES[@]}; ++i)); do
     brew install ${PACKAGES[i]}
@@ -106,18 +109,19 @@ done
 echo "========================================================================"
 echo "Installing brew casks"
 echo "========================================================================"
+brew tap homebrew/cask-versions
 # Install cask apps
 CASKS=(
     1password
     aerial
     alfred
-    android-platform-tools
     atext
     backblaze
     bartender
     blockblock
     carbon-copy-cloner
-    caskroom/versions/google-chrome-canary
+    google-chrome
+    google-chrome-canary
     cleanmymac
     devdocs
     divvy
@@ -133,12 +137,11 @@ CASKS=(
     noun-project
     paw
     rightfont
-    shimo
     skype
     slack
     soulver
     spotify
-    torbrowser
+    tor-browser
     tower
     virtualbox
     visual-studio-code
@@ -151,6 +154,7 @@ done
 echo "========================================================================"
 echo "Installing Mac App Store apps"
 echo "========================================================================"
+mas signin ${YOUR_APPLEID}
 # Install Mac App Store apps
 # Cinch
 mas install 412529613
@@ -181,7 +185,7 @@ echo "========================================================================"
 echo "Installing typefaces"
 echo "========================================================================"
 # Install fonts
-brew tap caskroom/fonts
+brew tap caskroom/cask-fonts
 FONTS=(
     font-fira-code
     font-source-sans-pro
@@ -217,13 +221,10 @@ done
 cp -f ./assets/DroidSansMonoAwesome.ttf /Library/Fonts/DroidSansMonoAwesome.ttf
 
 echo "========================================================================"
-echo "Installing NPM global packages, Sass, etc."
+echo "Installing NPM global packages, etc."
 echo "========================================================================"
 # Install global NPM packages
 npm i -g grunt-cli spoof tldr caniuse-cmd pageres-cli rename-cli
-
-# Install Sass and setup
-sudo gem install sass
 
 
 echo "========================================================================"
@@ -236,10 +237,10 @@ echo "========================================================================"
 echo "Setting up Zsh"
 echo "========================================================================"
 # Install OhMyZsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" -s --batch && echo "Installed oh-my-zsh"
 
 # Zsh autocompletion
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Powerlevel 9K
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k

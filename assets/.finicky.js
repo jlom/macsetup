@@ -1,38 +1,54 @@
-finicky.setDefaultBrowser('com.apple.Safari');
+const regex = /^https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(?:es)?\/(\d+)(?:\/.*)?$/
 
-// Open local urls in Canary
-finicky.onUrl((url, opts) => {
-    if (url.match(/^https?:\/\/(lolcathost|localhost|127.0.0.1)/)){
-        return { bundleIdentifier: 'com.google.Chrome.canary' }
-    }
-});
-
-// Open .onion-links in the Tor-browser (Veeery fuzzy.)
-finicky.onUrl((url, opts) => {
-    if (url.indexOf('.onion') >= 0){
-        return { bundleIdentifier: 'org.torproject.torbrowser' }
-    }
-});
-
-// Always open links from Mail in Safari
-finicky.onUrl(function(url, opts) {
-  var sourceApplication = opts && opts.sourceBundleIdentifier;
-  if (sourceApplication === "info.colloquy") {
-    return {
-      bundleIdentifier: "org.mozilla.firefox"
-    };
-  }
-});
-
-// Open Twitter links in Tweetbot
-finicky.onUrl(function(url, opts) {
-    var matches = url.match(/^https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(?:es)?\/(\d+)(?:\/.*)?$/);
-    if (matches && matches[2]) {
-	const user = matches[1];
-        const statusId = matches[2];
-        return {
-            url: `tweetbot://${user}/status/${statusId}`,
-            bundleIdentifier: 'com.tapbots.Tweetbot3Mac'
-        }
-    }
-});
+module.exports = {
+    defaultBrowser: 'Safari',
+    rewrite: [
+        {
+          match: ({urlString}) => {
+            const matches = urlString.match(regex);
+            finicky.log(JSON.stringify(matches, null, 2))
+            return matches && matches[2];
+          },
+          url: ({ urlString }) => {
+            const [_, user, statusId] = urlString.match(regex);
+            return `tweetbot://${user}/status/${statusId}`;
+          }
+        },
+        {
+            match: ({url}) => (url.search.includes('utm_')),
+            url: ({url}) => {
+                const search = url.search.split('&').filter(part => !part.startsWith('utm_'));
+                return {
+                    ...url,
+                    search: search.join('&')
+                }
+            }
+        },
+    ],
+    handlers: [
+        {
+            match: ({sourceBundleIdentifier}) => (sourceBundleIdentifier === 'info.colloquy'),
+            browser: 'Firefox'
+        },
+        {
+            match: /^https?:\/\/(lolcathost|localhost|127.0.0.1)/,
+            browser: 'Google Chrome Canary'
+        },
+        {
+            // Open google.com and *.google.com urls in Google Chrome
+            match: finicky.matchHostnames([
+              'google.com', // match google.com domain as string (to make regular expression less complicated)
+              /.*\.google.com$/ // match all google.com subdomains
+            ]),
+            browser: 'Google Chrome'
+        },
+        {
+            match: /.onion/,
+            browser: 'org.torproject.torbrowser'
+        },
+        {
+          match: ({url}) => url.protocol === 'tweetbot',
+          browser: 'com.tapbots.Tweetbot3Mac'
+        },
+    ]
+};

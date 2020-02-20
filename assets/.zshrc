@@ -30,3 +30,8 @@ eval "$(hub alias -s)"
 
 alias ls=exa
 alias quit=exit
+
+function chpwd() {
+    emulate -L zsh
+    ls -a
+}
