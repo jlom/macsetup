@@ -42,6 +42,10 @@ Run `$ sh setup.sh`, and the script will guide you through the rest.
 
 ## Mail
 - Remove the trash-button from messages, and add Archive
+- Enable plugins
+
+## Setapp
+- Favourites -> Install all
 
 ## OwnCloud
 - Install the [ownCloud client](https://owncloud.org/install/#install-clients).

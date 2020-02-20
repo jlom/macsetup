@@ -94,6 +94,7 @@ PACKAGES=(
     python
     python3
     sass/sass/sass
+    setapp
     telnet
     thefuck
     tree
@@ -117,26 +118,22 @@ CASKS=(
     alfred
     atext
     backblaze
-    bartender
     blockblock
     carbon-copy-cloner
     google-chrome
     google-chrome-canary
-    cleanmymac
     devdocs
     divvy
     finicky
     firefox
-    gemini
     gpg-suite
-    istat-menus
     iterm2
     knockknock
     mailbutler
     monodraw
     noun-project
-    paw
     rightfont
+    setapp
     skype
     slack
     soulver
@@ -178,6 +175,8 @@ mas install 937984704
 mas install 409183694
 # Pages
 mas install 409201541
+# ReadKit
+mas install 588726889
 # Numbers
 mas install 409203825
 # TableFlip
