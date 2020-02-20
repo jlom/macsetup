@@ -131,6 +131,7 @@ CASKS=(
     mailbutler
     monodraw
     noun-project
+    ogdesign-eagle
     owncloud
     rightfont
     setapp
@@ -183,6 +184,8 @@ mas install 409203825
 mas install 1462643128
 # Contrast
 mas install 1254981365
+# Tadam
+mas install 531349534
 
 echo "========================================================================"
 echo "Installing typefaces"
