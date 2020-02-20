@@ -159,7 +159,7 @@ mas signin ${YOUR_APPLEID}
 # Cinch
 mas install 412529613
 # Tweetbot
-mas install 557168941
+mas install 1384080005
 # Better Blocker
 mas install 1121192229
 # Fantastical
@@ -180,6 +180,10 @@ mas install 409183694
 mas install 409201541
 # Numbers
 mas install 409203825
+# TableFlip
+mas install 1462643128
+# Contrast
+mas install 1254981365
 
 echo "========================================================================"
 echo "Installing typefaces"
