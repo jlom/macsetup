@@ -47,9 +47,6 @@ Run `$ sh setup.sh`, and the script will guide you through the rest.
 ## Setapp
 - Favourites -> Install all
 
-## OwnCloud
-- Install the [ownCloud client](https://owncloud.org/install/#install-clients).
-
 ## Alfred
 - Settings -> Advanced -> Set sync folder
 

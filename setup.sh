@@ -94,7 +94,6 @@ PACKAGES=(
     python
     python3
     sass/sass/sass
-    setapp
     telnet
     thefuck
     tree
@@ -132,6 +131,7 @@ CASKS=(
     mailbutler
     monodraw
     noun-project
+    owncloud
     rightfont
     setapp
     skype
