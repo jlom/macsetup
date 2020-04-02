@@ -264,9 +264,6 @@ cp -f ./assets/.zshrc ~/.zshrc
 echo "========================================================================"
 echo "Adding assorted preference files"
 echo "========================================================================"
-# Add iTerm2 profile
-cp -f ./assets/com.googlecode.iterm2.plist ~/Library/Application\ Support/iTerm2/DynamicProfiles/com.googlecode.iterm2.plist
-
 # Add finicky rc
 cp -f ./assets/.finicky.js ~/.finicky.js
 
