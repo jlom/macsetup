@@ -41,8 +41,10 @@ echo "Your email?"
 read YOUR_EMAIL
 echo "Your phone number?"
 read YOUR_PHONE
-echo "Your Apple ID?"
-read YOUR_APPLEID
+echo "========================================================================"
+echo "SIGN IN TO THE MAC APP STORE"
+open /Applications/App\ Store.app/
+read -p "Sign in to the App Store. Press any key when you're done, to continue." -n1 -s
 echo "========================================================================"
 echo "Installing xcode tools and brew"
 echo "========================================================================"
@@ -135,6 +137,7 @@ CASKS=(
     owncloud
     rightfont
     setapp
+    sketch
     skype
     slack
     soulver
@@ -152,7 +155,6 @@ done
 echo "========================================================================"
 echo "Installing Mac App Store apps"
 echo "========================================================================"
-mas signin ${YOUR_APPLEID}
 # Install Mac App Store apps
 # Cinch
 mas install 412529613
@@ -191,7 +193,7 @@ echo "========================================================================"
 echo "Installing typefaces"
 echo "========================================================================"
 # Install fonts
-brew tap caskroom/cask-fonts
+brew tap homebrew/cask-fonts
 FONTS=(
     font-fira-code
     font-source-sans-pro
@@ -212,7 +214,6 @@ QLPLUGINS=(
     quicklook-json
     qlprettypatch
     quicklook-csv
-    betterzipql
     qlimagesize
     webpquicklook
     suspicious-package
@@ -536,7 +537,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 done
 
 # Run a MacOS software update
-sudo softwareupdate --install -all
+sudo softwareupdate -ia
 
 echo "Done!"
 echo ""

@@ -1,0 +1,86 @@
+Set up new mac: @parallel(true)
+- Run setup.sh
+- Sign in to iCloud
+- Sign in to 1Password
+- System preferences: General: Appearance: Dark
+	Appearance: Dark / Graphite
+	Default browser: Finicky
+
+- System preferences: General: Default web browser: Finicky
+- System preferences: Desktop and Screen Saver: Screen Saver: Aerial
+- System preferences: Keyboard: Shortcuts: Keyboard: Move focus to next window. ⌥ + ⇥
+- System preferences: Keyboard: Shortcuts: Spotlight: Uncheck all
+- System preferences: Keyboard: Text: Uncheck all
+- System preferences: Displays: Resolution: Scaled - More Space
+- System preferences: Displays: Arrangements
+- System Preferences: Security & Privacy: Allow your Apple Watch to unlock your Mac
+- System Preferences: Touch ID
+- Finder: Move ~ to sidebar
+- Finder: Move ~/Applications to dock
+- Finder: Remove AirDrop, Recents and Documents from sidebar
+- Safari: Enable Better and 1Password plugins
+- Safari: Add the iCloud tabs button to the toolbar
+- Safari: Change search engine to DuckDuckGo
+- Safari: Passwords: Uncheck AutoFill user names and passwords
+- Setup OwnCloud
+- Install Setapp (Install favourites)
+- Divvy: General: Start Divvy at login: on
+- Divvy: General: Show Divvy in the menu bar: off
+- Divvy: Shortcuts: ⌥+⌘+Ø = Lower right
+- Divvy: Shortcuts: ⌥+⌘+P = Right two-thirds
+- Divvy: Shortcuts: ⌥+⌘+L = Left one-third
+- Divvy: Shortcuts: ⇧+⌘+M = Full Screen
+- Alfred: Settings: Advanced: Set preference folder (OwnCloud)
+- Alfred: General: Alfred Hotkey: ⌘+Space
+- Setup Slack
+- Setup Fantastical
+- Fantastical: Appearance: Menu bar icon shows: Date & Weekday
+- Fantastical: Appearance: Use color menu bar icon
+- Fantastical: Appearance: Text Size: Extra Small
+- Mosaic: General: Default Gutter: 0 px
+- Setup iStat Menus
+- Setup Sip
+- Tadam: Open Tadam when I log in
+- Amphetamine: Appearance: Menu Bar Image: Coffee Carafe
+- Amphetamine: General: Launch Amphetamine at Login
+- Setup Bartender
+- Setup Mailbutler
+- Mail: Remove the trash-button from messages, and add Archive
+- Mail: Enable plugins
+- Mail: Viewing: Move discarded messages into: Archive
+- Mail: Mailbutler: Show badge for Mail’s Dock icon
+- Setup GPG Mail
+- Add the PGP secret keys to GPG keychain (the GUI app is fine)
+- Enable Encrypting messages by default in the GPGMail settings (in Mail.app)
+- Add the PGP signing key to git
+	List keys:
+	$ gpg --list-secret-keys --keyid-format LONG
+
+	Copy the ID (after the slash) and add it to git:
+	$ git config --global user.signingkey [ID]
+
+- iTerm: Preferences: Preferences: Load preferences from a custom folder or URL (OwnCloud)
+- Add ssh keys
+- Visual Studio Code: Install the Settings Sync plugin
+	https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+
+- Setup Drafts
+- Setup OmniFocus Sync
+- OmniFocus: Styles: Font size: Small
+- aText: Sync: Sync aText data to: iCloud
+- aText: General: Start aText at Login
+- aText: General: Uncheck Show aText icon in Dock
+- aText: General: Uncheck Show aText in menu bar
+- Chrome: Install 1Password plugin
+- Setup Spotify
+- Setup Eagle (Library in iCloud)
+- Clean out Dock
+- [Work machine] Add work specific stuff to .zshrc (from Draft note)
+- [Work machine] Company portal: Install Universal Type Client
+- [Work machine] Company portal: Install AppGate SDP
+- [Work machine]: Install Adobe CC
+	brew cask install adobe-creative-cloud
+
+- [Work machine]: Setup UTC
+- Clean out unused language files etc. with CMM
+- Reboot
