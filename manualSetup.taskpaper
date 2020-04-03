@@ -72,6 +72,9 @@ Set up new mac: @parallel(true)
 - aText: General: Uncheck Show aText icon in Dock
 - aText: General: Uncheck Show aText in menu bar
 - Chrome: Install 1Password plugin
+- Download and install Exploratory
+	https://exploratory.io/login/
+
 - Setup Spotify
 - Setup Eagle (Library in iCloud)
 - Clean out Dock
