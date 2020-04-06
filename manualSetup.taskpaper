@@ -43,7 +43,6 @@ Set up new mac: @parallel(true)
 - Tadam: Open Tadam when I log in
 - Amphetamine: Appearance: Menu Bar Image: Coffee Carafe
 - Amphetamine: General: Launch Amphetamine at Login
-- Setup Bartender
 - Setup Mailbutler
 - Mail: Remove the trash-button from messages, and add Archive
 - Mail: Enable plugins
@@ -77,6 +76,8 @@ Set up new mac: @parallel(true)
 
 - Setup Spotify
 - Setup Eagle (Library in iCloud)
+- Setup Bartender
+- Bartender: Preferences: General: Open Bartender at login
 - Clean out Dock
 - [Work machine] Add work specific stuff to .zshrc (from Draft note)
 - [Work machine] Company portal: Install Universal Type Client
