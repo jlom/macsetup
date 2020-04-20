@@ -147,6 +147,7 @@ CASKS=(
     virtualbox
     visual-studio-code
     vlc
+    qgis
 )
 for ((i=0; i<${#CASKS[@]}; ++i)); do
     brew cask install ${CASKS[i]} --appdir=/Applications
