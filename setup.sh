@@ -291,7 +291,7 @@ echo "========================================================================"
 echo "Making hosts file"
 echo "========================================================================"
 sudo cp -f ./assets/hosts /private/etc/hosts
-curl "http://someonewhocares.org/hosts/zero/hosts" | sudo tee -a /etc/hosts
+curl "https://someonewhocares.org/hosts/zero/hosts" | sudo tee -a /etc/hosts
 
 echo "========================================================================"
 echo "Setting DNS for Wifi"
