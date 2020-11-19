@@ -35,3 +35,7 @@ function chpwd() {
     emulate -L zsh
     ls -a
 }
+
+function calc () {
+    bc -l <<< "$@"
+}
