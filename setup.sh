@@ -69,10 +69,10 @@ brew update
 
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
-brew install gnu-sed --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-indent --with-default-names
-brew install gnu-which --with-default-names
+brew install gnu-sed
+brew install gnu-tar
+brew install gnu-indent
+brew install gnu-which
 
 # Install Bash 4
 brew install bash
@@ -154,7 +154,7 @@ CASKS=(
     qgis
 )
 for ((i=0; i<${#CASKS[@]}; ++i)); do
-    brew cask install ${CASKS[i]} --appdir=/Applications
+    brew install ${CASKS[i]} --appdir=/Applications
 done
 
 echo "========================================================================"
