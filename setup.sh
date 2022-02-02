@@ -127,6 +127,7 @@ CASKS=(
     atext
     backblaze
     blockblock
+    brave-browser
     carbon-copy-cloner
     google-chrome
     google-chrome-canary
