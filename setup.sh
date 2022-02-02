@@ -53,7 +53,9 @@ xcode-select --install
 
 # Check for Homebrew, install if we don't have it
 if test ! $(which brew); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Opt out of brew analytics
@@ -75,6 +77,14 @@ brew install gnu-which --with-default-names
 # Install Bash 4
 brew install bash
 
+# Install Node, NPM, and NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+echo '# This loads nvm' >>! $HOME/.zshrc
+echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >>! $HOME/.zshrc
+source ~/.nvm/nvm.sh
+nvm install --lts
+
 # Install brew packages
 PACKAGES=(
     catimg
@@ -89,9 +99,6 @@ PACKAGES=(
     lynx
     markdown
     mas
-    node
-    npm
-    nvm
     openssl
     python
     python3
@@ -123,28 +130,24 @@ CASKS=(
     carbon-copy-cloner
     google-chrome
     google-chrome-canary
-    devdocs
+    discord
     divvy
     finicky
     firefox
     gpg-suite
     iterm2
     knockknock
-    mailbutler
     monodraw
     noun-project
     ogdesign-eagle
-    owncloud
-    rightfont
     setapp
     sketch
-    skype
     slack
     soulver
     spotify
+    suspicious-package
     tor-browser
     tower
-    virtualbox
     visual-studio-code
     vlc
     qgis
@@ -209,7 +212,6 @@ echo "========================================================================"
 echo "Installing QuickLook plugins"
 echo "========================================================================"
 QLPLUGINS=(
-    qlcolorcode
     qlstephen
     qlmarkdown
     quicklook-json
