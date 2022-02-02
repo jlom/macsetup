@@ -310,7 +310,7 @@ echo "========================================================================"
 echo "Setting Firmware password"
 echo "========================================================================"
 # Prompt for FW password when booting from a different volume
-read -p "Set firmware password (reccomended)? " -n 1 -r
+read -p "Set firmware password (reccomended)? [y/n] " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
