@@ -105,6 +105,7 @@ PACKAGES=(
     python
     python3
     sass/sass/sass
+    svn
     telnet
     thefuck
     tree
