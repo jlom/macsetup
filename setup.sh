@@ -422,6 +422,12 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ## FINDER
 ## =============================================================================
+# No delay for proxy icons
+defaults write -g NSToolbarTitleViewRolloverDelay -float 0
+
+# Wide alerts
+defaults write -g NSAlertMetricsGatheringEnabled -bool false
+
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
