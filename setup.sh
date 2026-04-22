@@ -64,6 +64,7 @@ brew analytics off
 echo "========================================================================"
 echo "Installing brew packages"
 echo "========================================================================"
+
 # Update homebrew recipes
 brew update
 
@@ -86,33 +87,44 @@ source ~/.nvm/nvm.sh
 nvm install --lts
 
 # Install brew packages
-brew tap passy/givegif
-brew tap passy/givegif
 PACKAGES=(
     catimg
     cowsay
     diff-so-fancy
-    exa
+	exiftool
+	fd
     ffmpeg
     git
-    givegif
+	gh
+	htop
     hub
     imagemagick
+	jq
     lynx
     markdown
     mas
     openssl
+	pnpm
+	pyenv
     python
     python3
+	qt
+	ripgrep
+	rsync
+	saml2aws
     sass/sass/sass
     svn
+	svgo
+	tailscale
     telnet
     thefuck
+	transmission-cli
     tree
     watch
     wget
+	yt-dlp
+	zoxide
     zsh
-    yarn
 )
 for ((i=0; i<${#PACKAGES[@]}; ++i)); do
     brew install ${PACKAGES[i]}
@@ -121,41 +133,39 @@ done
 echo "========================================================================"
 echo "Installing brew casks"
 echo "========================================================================"
-brew tap homebrew/cask-versions
 
 # Install cask apps
 CASKS=(
     1password
+	1password-cli
     aerial
-    alfred
     atext
     backblaze
     blockblock
-    brave-browser
     carbon-copy-cloner
-    google-chrome
-    google-chrome-canary
+	codex
+	devonthink
     discord
     divvy
-    finicky
     firefox
+	ghostty
+	github
     gpg-suite
-    iterm2
     knockknock
     monodraw
     noun-project
+	obsidian
     ogdesign-eagle
+	qgis
+	rstudio
     setapp
-    sketch
     slack
     soulver
-    spotify
     suspicious-package
     tor-browser
     tower
     visual-studio-code
     vlc
-    qgis
 )
 for ((i=0; i<${#CASKS[@]}; ++i)); do
     brew install ${CASKS[i]} --appdir=/Applications
@@ -167,16 +177,8 @@ echo "========================================================================"
 # Install Mac App Store apps
 # Cinch
 mas install 412529613
-# Tweetbot
-mas install 1384080005
-# Better Blocker
-mas install 1121192229
 # Fantastical
 mas install 975937182
-# Deliveries
-mas install 924726344
-# OmniFocus
-mas install 1346203938
 # Drafts
 mas install 1435957248
 # Kaleidoscope
@@ -187,8 +189,6 @@ mas install 937984704
 mas install 409183694
 # Pages
 mas install 409201541
-# ReadKit
-mas install 588726889
 # Numbers
 mas install 409203825
 # TableFlip
@@ -197,6 +197,19 @@ mas install 1462643128
 mas install 1254981365
 # Tadam
 mas install 531349534
+## Tailscale
+mas install 1475387142
+## TickTick
+mas install 966085870
+## Reeder
+mas install 1529448980
+## Easy CSV Editor
+mas install 1171346381
+## Guru Maps
+mas install 321745474
+## Flighty
+mas install 1358823008
+
 
 echo "========================================================================"
 echo "Installing typefaces"
@@ -217,15 +230,11 @@ echo "========================================================================"
 echo "Installing QuickLook plugins"
 echo "========================================================================"
 QLPLUGINS=(
-    qlstephen
     qlmarkdown
     quicklook-json
-    qlprettypatch
     quicklook-csv
     qlimagesize
     webpquicklook
-    suspicious-package
-    quicklookase
     qlvideo
 )
 for ((i=0; i<${#QLPLUGINS[@]}; ++i)); do
@@ -239,7 +248,7 @@ echo "========================================================================"
 echo "Installing NPM global packages, etc."
 echo "========================================================================"
 # Install global NPM packages
-npm i -g grunt-cli spoof tldr caniuse-cmd pageres-cli rename-cli
+npm i -g vite prettier-plugin-svelte
 
 
 echo "========================================================================"
@@ -263,17 +272,12 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 # zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# zsh iTerm Touchbar
-git clone https://github.com/iam4x/zsh-iterm-touchbar.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
-
 # Add .zshrc
 cp -f ./assets/.zshrc ~/.zshrc
 
 echo "========================================================================"
 echo "Adding assorted preference files"
 echo "========================================================================"
-# Add finicky rc
-cp -f ./assets/.finicky.js ~/.finicky.js
 
 # Add diff-so-fancy config
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
