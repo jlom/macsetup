@@ -182,20 +182,12 @@ mas install 412529613
 mas install 975937182
 # Drafts
 mas install 1435957248
-# Kaleidoscope
+# Kaleidoscope xx
 mas install 587512244
 # Amphetamine
 mas install 937984704
-# Keynote
-mas install 409183694
-# Pages
-mas install 409201541
-# Numbers
-mas install 409203825
 # TableFlip
 mas install 1462643128
-# Contrast
-mas install 1254981365
 # Tadam
 mas install 531349534
 ## Tailscale
@@ -232,9 +224,6 @@ echo "Installing QuickLook plugins"
 echo "========================================================================"
 QLPLUGINS=(
     qlmarkdown
-    quicklook-json
-    quicklook-csv
-    qlimagesize
     webpquicklook
     qlvideo
 )
