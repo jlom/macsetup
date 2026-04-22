@@ -156,6 +156,7 @@ CASKS=(
     noun-project
 	obsidian
     ogdesign-eagle
+	plex
 	qgis
 	rstudio
     setapp
