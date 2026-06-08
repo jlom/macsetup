@@ -519,11 +519,6 @@ defaults write com.apple.Safari ShowFavoritesBar -bool false
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
-## iTUNES
-## =============================================================================
-# Stop iTunes from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
-
 ## MAIL
 ## =============================================================================
 # Add the keyboard shortcut CMD + Enter to send an email
